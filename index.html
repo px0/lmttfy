@@ -1,443 +1,507 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html class="csstransforms no-csstransforms3d csstransitions" xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<style type="text/css">@charset "UTF-8";{display:none !important;}</style>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="smartsite_root" id="smartsite_root" value="/">
-		<meta http-equiv="X-UA-Compatible" content="IE=7">
-		<meta name="viewport" content="width=1024">
-		<link rel="shortcut icon" href="#"/>
-		<title>Add Ticket - Genome</title>
-	<!--bootstrap-->
-	<link href="addTicket_files/bootstrap.css" rel="stylesheet">
-	<!--select2-->
-	<link rel="stylesheet" href="addTicket_files/select2.css">
-	
-	<link rel="stylesheet" href="addTicket_files/styles.css">
-	<link rel="stylesheet" href="addTicket_files/stylesheet.css">
-	<link rel="stylesheet" href="addTicket_files/font-awesome.css">
-	
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html class="csstransforms no-csstransforms3d csstransitions" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <style type="text/css">@charset "UTF-8";{display:none !important;}</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="smartsite_root" id="smartsite_root" value="/">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=1024">
+    <link rel="shortcut icon" href="#"/>
+    <title>Add Ticket - Genome</title>
+    <link href="addTicket_files/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="addTicket_files/styles.css">
+    <link rel="stylesheet" href="addTicket_files/stylesheet.css">
+    <link rel="stylesheet" href="addTicket_files/font-awesome.css">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/typed.js/js/typed.js"></script>
+
 	
 
-	</head>
-	<body  class="singlelevel   ">
-		<div class="wrapper">
-			<div class="layout">
-				<img src="addTicket_files/loading-creambg.gif" class="loading" style="display:none" id="loadingicon" height="32" width="32">
-				<div class="layout-top">
-					<a href="#" class="homelink">
-						<span></span>
-						<img src="addTicket_files/genome.png" title="Genome">
-					</a>
+</head>
+    <body  class="singlelevel   ">
+    <img class="decoded" alt="http://lmgtfy.com/assets/mouse_arrow_mac-6c943258a76668213ca2d7262050d3a4.png" src="http://lmgtfy.com/assets/mouse_arrow_mac-6c943258a76668213ca2d7262050d3a4.png" id="fakeMouse" style="position: fixed; z-index:9999">
+    <div class="wrapper">
+    <div class="layout">
+    <img src="addTicket_files/loading-creambg.gif" class="loading" style="display:none" id="loadingicon" height="32" width="32">
+    <div class="layout-top">
+    <a href="#" class="homelink">
+    <span></span>
+    <img src="addTicket_files/genome.png" title="Genome">
+    </a>
 
-					<div id="TopMenu">
-						<span class="ELEMENT-elements-navigation-top_menu-index smartsite-element smartsite-element-editmode-both"><ul id="megamenu">
-								<li class="menu">
-									<div class="menu-title">
-										<a href="#" page="/tools/academy/">Academy</a>
-									</div>
+    <div id="TopMenu">
+    <span class="ELEMENT-elements-navigation-top_menu-index smartsite-element smartsite-element-editmode-both"><ul id="megamenu">
+    <li class="menu">
+    <div class="menu-title">
+    <a href="#" page="/tools/academy/">Academy</a>
+    </div>
 
-								</li>
-								<li class="menu">
-									<div class="menu-title">
-										<span page="/general/">Klick</span>
-									</div>
-									<div class="submenu dropshadow">
-										<div class="leftcolumn">
-											<div class="corporate_info">
-												<h3>CORPORATE INFO</h3>
-												<ul class="first">
-													<li><a href="#">Boardrooms Calendar</a></li>
-													<li><a href="#">Events</a></li>
-													<li><a href="#">Event Calendar</a></li>
-													<li><a href="#">Klick Awards</a></li>
-													<li><a href="#">Klick Glossary</a></li>
-													<li><a href="#">Klick Start</a></li>
-													<li><a href="#">Klick Stories</a></li>
-													<li><a href="#">Our Values</a></li>
-													<li><a href="#">Payroll and Benefits</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="people leftcolumn">
-											<h3>PEOPLE</h3>
-											<ul>
-												<li><a href="#">All Users</a></li>
-												<li><a href="#">My Preferences</a></li>
-												<li><a href="#">Org Chart</a></li>
-												<li><a href="#">Seating Map</a></li>
-											</ul>
-										</div>
-										<div class="leftcolumn">
-											<div class="departments">
-												<h3>DEPARTMENTS</h3>
-												<ul>
-													<li><a href="#" target="_blank">K2 Digital</a></li>
-													<li><a href="#">Strategy and Analytics</a></li>
-													<li><a href="#">Application Dev</a></li>
-													<li><a href="#">Creative</a></li>
-													<li><a href="#">CRM Operations</a></li>
-													<li><a href="#">Culture &amp; Engagement</a></li>
-													<li><a href="#">Database Marketing</a></li>
-													<li><a href="#">Editorial</a></li>
-													<li><a href="#">Interactive Engineering</a></li>
-													<li><a href="#">Klick Managers</a></li>
-													<li><a href="#">Media</a></li>
-													<li><a href="#">Office Systems</a></li>
-													<li><a href="#">Project Management</a></li>
-													<li><a href="#">Quality Assurance</a></li>
-													<li><a href="#">Sales</a></li>
-													<li><a href="#">User Experience</a></li>
-													<li><a href="#">Web Development</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="rightcolumn">
-											<div class="submenurightcallout">
-												<div class="toolbar">
-													<h3>Quick Links</h3>
-													<ul>
-														<li><a href="#">Tickets (<span>20</span>)</a> </li>
-														<li><a href="#">Schedule</a></li>
-														<li><a href="#">News (<span>0</span>)</a></li>
+</li>
+    <li class="menu selected">
+    <div class="menu-title">
+    <span page="/general/">Klick 101</span>
+    </div>
+    <div class="submenu dropshadow">
+    <div class="leftcolumn">
+    <div class="corporate_info">
+    <h3>CORPORATE INFO</h3>
+    <ul class="first">
+    <li><a href="#">Boardrooms Calendar</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Event Calendar</a></li>
+    <li><a href="#">Klick Awards</a></li>
+    <li><a href="#">Klick Glossary</a></li>
+    <li><a href="#">Klick Start</a></li>
+    <li><a href="#">Klick Stories</a></li>
+    <li><a href="#">Our Values</a></li>
+    <li><a href="#">Payroll and Benefits</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="people leftcolumn">
+    <h3>PEOPLE</h3>
+    <ul>
+    <li><a href="#">All Users</a></li>
+    <li><a href="#">My Preferences</a></li>
+    <li><a href="#">Org Chart</a></li>
+    <li><a href="#">Seating Map</a></li>
+    </ul>
+    </div>
+    <div class="leftcolumn">
+    <div class="departments">
+    <h3>DEPARTMENTS</h3>
+    <ul>
+    <li><a href="#" target="_blank">K2 Digital</a></li>
+    <li><a href="#">Strategy and Analytics</a></li>
+    <li><a href="#">Application Dev</a></li>
+    <li><a href="#">Creative</a></li>
+    <li><a href="#">CRM Operations</a></li>
+    <li><a href="#">Culture &amp; Engagement</a></li>
+    <li><a href="#">Database Marketing</a></li>
+    <li><a href="#">Editorial</a></li>
+    <li><a href="#">Interactive Engineering</a></li>
+    <li><a href="#">Klick Managers</a></li>
+    <li><a href="#">Media</a></li>
+    <li><a href="#">Office Systems</a></li>
+    <li><a href="#">Project Management</a></li>
+    <li><a href="#">Quality Assurance</a></li>
+    <li><a href="#">Sales</a></li>
+    <li><a href="#">User Experience</a></li>
+    <li><a href="#">Web Development</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="rightcolumn">
+    <div class="submenurightcallout">
+    <div class="toolbar">
+    <h3>Quick Links</h3>
+    <ul>
+    <li><a href="#">Tickets (<span>20</span>)</a> </li>
+    <li><a href="#">Schedule</a></li>
+    <li><a href="#">News (<span>0</span>)</a></li>
 
-														<li><a href="#">Weekly Review</a></li>
-														<li><a href="#">Genome Tips</a></li>
-														<li><a href="#">Mobile Site</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li class="menu">
-									<div class="menu-title">
-										<a href="#" page="/sales/user/">Clients</a>
-									</div>
+    <li><a href="#">Weekly Review</a></li>
+    <li><a href="#">Genome Tips</a></li>
+    <li><a href="#">Mobile Site</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </li>
+    <li class="menu">
+    <div class="menu-title">
+    <a href="#" page="/sales/user/">Clients</a>
+    </div>
 
-								</li>
-								<li class="menu selected">
-									<div class="menu-title">
-										<span page="/tasks/">Production</span>
-									</div>
-									<div class="submenu dropshadow">
-										<div class="leftcolumn">
-											<div class="tickets">
-												<h3>TICKETS</h3>
-												<ul class="first">
-													<li><a href="#">Open for Me (<span>20</span>)</a></li>
-													<li><a href="#">Open From Me (<span>15</span>)</a></li>
-													<li><a href="#">To Verify (<span>126</span>)</a></li>
-													<li><a href="#">Subscribed (<span>1</span>)</a></li>
-													<li><a href="#">Autotickets</a></li>
-													<li><a href="#">Showcase</a></li>
-													<li><a href="#">Extranet Ticket Review</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="leftcolumn">
-											<div class="projects">
-												<h3>PROJECTS</h3>
-												<ul>
-													<li><a href="#">Projects Home</a></li>
-													<li><a href="#">Project List</a></li>
+</li>
+    <li class="menu">
+    <div class="menu-title">
+    <span page="/tasks/">Production</span>
+    </div>
+    <div class="submenu dropshadow">
+    <div class="leftcolumn">
+    <div class="tickets">
+    <h3>TICKETS</h3>
+    <ul class="first">
+    <li><a href="#">Open for Me (<span>20</span>)</a></li>
+    <li><a href="#">Open From Me (<span>15</span>)</a></li>
+    <li><a href="#">To Verify (<span>126</span>)</a></li>
+    <li><a href="#">Subscribed (<span>1</span>)</a></li>
+    <li><a href="#">Autotickets</a></li>
+    <li><a href="#">Showcase</a></li>
+    <li><a href="#">Extranet Ticket Review</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="leftcolumn">
+    <div class="projects">
+    <h3>PROJECTS</h3>
+    <ul>
+    <li><a href="#">Projects Home</a></li>
+    <li><a href="#">Project List</a></li>
 
-													<li><a href="#">Weekly Review</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="resources leftcolumn">
-											<h3>RESOURCES</h3>
-											<ul>
-												<li><a href="#">All Suppliers</a></li>
-												<li><a href="#">My Work Orders</a></li>
-												<li><a href="#">Calendar</a></li>
-												<li><a href="#">Reports</a></li>
-												<li><a href="#">Booked Resources</a></li>
-											</ul>
-										</div>
-										<div class="rightcolumn">
-											<div class="submenurightcallout">
-												<div class="toolbar">
-													<h3>Quick Links</h3>
-													<ul>
-														<li><a href="#">Tickets (<span>20</span>)</a> </li>
-														<li><a href="#">Schedule</a></li>
-														<li><a href="#">News (<span>0</span>)</a></li>
+    <li><a href="#">Weekly Review</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="resources leftcolumn">
+    <h3>RESOURCES</h3>
+    <ul>
+    <li><a href="#">All Suppliers</a></li>
+    <li><a href="#">My Work Orders</a></li>
+    <li><a href="#">Calendar</a></li>
+    <li><a href="#">Reports</a></li>
+    <li><a href="#">Booked Resources</a></li>
+    </ul>
+    </div>
+    <div class="rightcolumn">
+    <div class="submenurightcallout">
+    <div class="toolbar">
+    <h3>Quick Links</h3>
+    <ul>
+    <li><a href="#">Tickets (<span>20</span>)</a> </li>
+    <li><a href="#">Schedule</a></li>
+    <li><a href="#">News (<span>0</span>)</a></li>
 
-														<li><a href="#">Weekly Review</a></li>
-														<li><a href="#">Genome Tips</a></li>
-														<li><a href="#">Mobile Site</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li class="menu">
-									<div class="menu-title">
-										<span page="/tools/">Tools</span>
-									</div>
-									<div class="submenu dropshadow">
-										<div class="leftcolumn">
-											<div class="corporate_tools">
-												<h3>CORPORATE TOOLS</h3>
-												<ul class="first">
+    <li><a href="#">Weekly Review</a></li>
+    <li><a href="#">Genome Tips</a></li>
+    <li><a href="#">Mobile Site</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </li>
+    <li class="menu">
+    <div class="menu-title">
+    <span page="/tools/">Tools</span>
+    </div>
+    <div class="submenu dropshadow">
+    <div class="leftcolumn">
+    <div class="corporate_tools">
+    <h3>CORPORATE TOOLS</h3>
+    <ul class="first">
 
 
-													<li><a href="#">Concierge</a></li>
-													<li><a href="#">Expense Claim</a></li>
-													<li><a href="#">Job Postings</a></li>
-													<li><a href="#">Klick it Forward</a></li>
-													<li><a href="#">Klick Local</a></li>
-													<li><a href="#">Subscription Notifications</a></li>
-													<li><a href="#">My Page Views</a></li>
-													<li><a href="#">Survey Admin</a></li>
-													<li><a href="#">Temp Swipe Card</a></li>
-													<li><a href="#">Travel Request</a></li>
-													<li><a href="#">Vacation</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="leftcolumn">
-											<div class="administration">
-												<h3>ADMINISTRATION</h3>
-												<ul>
-													<li><a href="#">Auto-Tickets</a></li>
-													<li><a href="#">Check Point</a></li>
-													<li><a href="#">Goals</a></li>
-													<li><a href="#">Mobile Devices</a></li>
-													<li><a href="#">Monitor</a></li>
-													<li><a href="#">Ticket Notifications</a></li>
+    <li><a href="#">Concierge</a></li>
+    <li><a href="#">Expense Claim</a></li>
+    <li><a href="#">Job Postings</a></li>
+    <li><a href="#">Klick it Forward</a></li>
+    <li><a href="#">Klick Local</a></li>
+    <li><a href="#">Subscription Notifications</a></li>
+    <li><a href="#">My Page Views</a></li>
+    <li><a href="#">Survey Admin</a></li>
+    <li><a href="#">Temp Swipe Card</a></li>
+    <li><a href="#">Travel Request</a></li>
+    <li><a href="#">Vacation</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="leftcolumn">
+    <div class="administration">
+    <h3>ADMINISTRATION</h3>
+    <ul>
+    <li><a href="#">Auto-Tickets</a></li>
+    <li><a href="#">Check Point</a></li>
+    <li><a href="#">Goals</a></li>
+    <li><a href="#">Mobile Devices</a></li>
+    <li><a href="#">Monitor</a></li>
+    <li><a href="#">Ticket Notifications</a></li>
 
-													<li><a href="#">Work Teams</a></li>
-													<li><a href="#">My Hiring</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="leftcolumn">
-											<h3>REPORTS</h3>
-											<div>
-												<ul class="first">
-													<li><a href="#">Business Review</a></li>
-													<li><a href="#">Work Orders</a></li>
-													<li><a href="#">Actuals</a></li>
-													<li><a href="#">Actuals (your team)</a></li>
-													<li><a href="#">Project 360</a></li>
-													<li><a href="#">Backlog</a></li>
-													<li><a href="#">Reconciliations</a></li>
-													<li><a href="#">Activity</a></li>
-													<li><a href="#">Pre-Canned Reports</a></li>
-													<li><a href="#">Infographic</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="rightcolumn">
-											<div class="submenurightcallout">
-												<div class="toolbar">
-													<h3>Quick Links</h3>
-													<ul>
-														<li><a href="#">Tickets (<span>20</span>)</a> </li>
-														<li><a href="#">Schedule</a></li>
-														<li><a href="#">News (<span>0</span>)</a></li>
+    <li><a href="#">Work Teams</a></li>
+    <li><a href="#">My Hiring</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="leftcolumn">
+    <h3>REPORTS</h3>
+    <div>
+    <ul class="first">
+    <li><a href="#">Business Review</a></li>
+    <li><a href="#">Work Orders</a></li>
+    <li><a href="#">Actuals</a></li>
+    <li><a href="#">Actuals (your team)</a></li>
+    <li><a href="#">Project 360</a></li>
+    <li><a href="#">Backlog</a></li>
+    <li><a href="#">Reconciliations</a></li>
+    <li><a href="#">Activity</a></li>
+    <li><a href="#">Pre-Canned Reports</a></li>
+    <li><a href="#">Infographic</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="rightcolumn">
+    <div class="submenurightcallout">
+    <div class="toolbar">
+    <h3>Quick Links</h3>
+    <ul>
+    <li><a href="#">Tickets (<span>20</span>)</a> </li>
+    <li><a href="#">Schedule</a></li>
+    <li><a href="#">News (<span>0</span>)</a></li>
 
-														<li><a href="#">Weekly Review</a></li>
-														<li><a href="#">Genome Tips</a></li>
-														<li><a href="#">Mobile Site</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li class="menu">
-									<div class="menu-title">
-										<a href="#" page="/scheduler/href="#"/day/now/">Scheduler</a>
-									</div>
-									<div class="submenu dropshadow">
-										<div class="leftcolumn">
-											<div class="schedule">
-												<h3>SCHEDULE</h3>
-												<ul class="first">
-													<li><a href="#">My Schedule</a></li>
-													<li><a href="#">Schedule by Team</a></li>
-													<li><a href="#">Schedule by Role</a></li>
-													<li><a href="#">User Template</a></li>
-													<li><a href="#">Work Team Template</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="leftcolumn">
-											<div class="resources">
-												<h3>RESOURCES</h3>
-												<ul>
+    <li><a href="#">Weekly Review</a></li>
+    <li><a href="#">Genome Tips</a></li>
+    <li><a href="#">Mobile Site</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </li>
+    <li class="menu">
+    <div class="menu-title">
+    <a href="#" page="/scheduler/href="#"/day/now/">Scheduler</a>
+    </div>
+    <div class="submenu dropshadow">
+    <div class="leftcolumn">
+    <div class="schedule">
+    <h3>SCHEDULE</h3>
+    <ul class="first">
+    <li><a href="#">My Schedule</a></li>
+    <li><a href="#">Schedule by Team</a></li>
+    <li><a href="#">Schedule by Role</a></li>
+    <li><a href="#">User Template</a></li>
+    <li><a href="#">Work Team Template</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="leftcolumn">
+    <div class="resources">
+    <h3>RESOURCES</h3>
+    <ul>
 
-												</ul>
-											</div>
-										</div>
-										<div class="rightcolumn">
-											<div class="submenurightcallout">
-												<div class="toolbar">
-													<h3>Quick Links</h3>
-													<ul>
-														<li><a href="#">Tickets (<span>20</span>)</a> </li>
-														<li><a href="#">Schedule</a></li>
-														<li><a href="#">News (<span>0</span>)</a></li>
+</ul>
+    </div>
+    </div>
+    <div class="rightcolumn">
+    <div class="submenurightcallout">
+    <div class="toolbar">
+    <h3>Quick Links</h3>
+    <ul>
+    <li><a href="#">Tickets (<span>20</span>)</a> </li>
+    <li><a href="#">Schedule</a></li>
+    <li><a href="#">News (<span>0</span>)</a></li>
 
-														<li><a href="#">Weekly Review</a></li>
-														<li><a href="#">Genome Tips</a></li>
-														<li><a href="#">Mobile Site</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</span>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="topwrapper"></div>
+    <li><a href="#">Weekly Review</a></li>
+    <li><a href="#">Genome Tips</a></li>
+    <li><a href="#">Mobile Site</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </li>
+    </ul>
+    </span>
+    </div>
+    <div class="clear"></div>
+    </div>
+    <div class="topwrapper"></div>
 
-				<div id="loading" style="display:none">
-					<center>
-						<img src="addTicket_files/loading-creambg.gif" class="loading" style="display:none" height="32" width="32">
-					</center>
-				</div>
-				<div class="content" id="InternalContent" style="">
+    <div id="loading" style="display:none">
+    <center>
+    <img src="addTicket_files/loading-creambg.gif" class="loading" style="display:none" height="32" width="32">
+    </center>
+    </div>
+    <div class="content" id="InternalContent" style="">
 
-					<div class="box" id="BoxOrNoBox">
-						<div class="local_menu one">
-							<span class="ELEMENT-elements-navigation-local_menu-local smartsite-element smartsite-element-editmode-both">
-							</span>
-						</div>
-						<span class="ELEMENT-tasks-ticket-create smartsite-element smartsite-element-editmode-both">
-							<form id="viewform" action="" method="get" >
-								<div class="tickets box">
+    <div class="box" id="BoxOrNoBox">
+    <div class="local_menu one">
+    <span class="ELEMENT-elements-navigation-local_menu-local smartsite-element smartsite-element-editmode-both">
+    </span>
+    </div>
+    <span class="ELEMENT-tasks-ticket-create smartsite-element smartsite-element-editmode-both">
+    <form id="viewform" action="" method="get" >
+    <div class="tickets box">
 
-									<table class="tickettable">
-										<colgroup>
-											<col style="width:150px;">
-											<col>
-											<col style="width:20px;">
-										</colgroup>
+    <table class="tickettable">
+    <colgroup>
+    <col style="width:150px;">
+    <col>
+    <col style="width:20px;">
+    </colgroup>
 
-										<tbody>
-											<tr>
-												<td class="label"><label for="Title">Summary:</label></td>
-												<td><input autocomplete="off" id="Title" maxlength="255" name="Title" value=""></td>
-												<td></td>
-											</tr>
-											<tr>
-												<td class="label" style="vertical-align:top"><label for="">Details:</label></td>
-												<td>
-													<textarea name="Description" id="Description" cols="40" rows="5" ... ></textarea>
-												</td>
-												<td></td>
-											</tr>
-											<tr>
-												<td></td>
-												<td>
-													<table border="0" cellpadding="0" cellspacing="0">
-														<tbody>
-															<tr>
-																<td valign="middle">
-																	<input name="convertParagraphs" disabled style="width:19px; " type="checkbox">
-																</td>
-																<td valign="middle">&nbsp;<i>Convert paragraphs to separate tickets</i>
-																</td>
-															</tr>
-														</tbody>
-													</table>
-												</td>
-												<td></td>
-											</tr>
-											<tr>
-												<td class="label"><label for="ProjectID">Project:</label></td>
-												<td>
-													<input id="ProjectID" name="ProjectID" autocomplete="off"   width="100%">
-												</td>
+    <tbody>
+    <tr>
+    <td class="label"><label for="Title">Summary:</label></td>
+    <td><input autocomplete="off" id="Title" maxlength="255" name="Title" value=""></td>
+    <td></td>
+    </tr>
+    <tr>
+    <td class="label" style="vertical-align:top"><label for="">Details:</label></td>
+    <td>
+    <textarea name="Description" id="Description" cols="40" rows="5" ... ></textarea>
+    </td>
+    <td></td>
+    </tr>
+    <tr>
+    <td></td>
+    <td>
+    <table border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+    <td valign="middle">
+    <input name="convertParagraphs" disabled style="width:19px; " type="checkbox">
+    </td>
+    <td valign="middle">&nbsp;<i>Convert paragraphs to separate tickets</i>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </td>
+    <td></td>
+    </tr>
+    <tr>
+    <td class="label"><label for="ProjectID">Project:</label></td>
+    <td>
+    <input id="ProjectID" name="ProjectID" autocomplete="off"   width="100%">
+    </td>
 
-											</tr>
-											<tr>
-												<td class="label"><label for="AssignedToUserID">Assigned (optional):</label></td>
-												<td>
-													<input id="AssignedToUserID" name="AssignedToUserID" autocomplete="off"  >
-												</td>
+</tr>
+    <tr>
+    <td class="label"><label for="AssignedToUserID">Assigned (optional):</label></td>
+    <td>
+    <input id="AssignedToUserID" name="AssignedToUserID" autocomplete="off"  >
+    </td>
 
-											</tr>
+</tr>
 
-											<tr style="display: ">
-												<td class="label"><label for="">Importance:</label></td>
-												<td>
-													<select id="Priority" name="Priority" disabled>
-														<option value="6">6. when time is available</option>
-														<option value="5" selected>5. regular ticket</option>
-														<option value="4">4. client-visible issues</option>
-														<option value="3">3. client-visible MAJOR issues</option>
-													</select>
-												</td>
-												<td></td>
-											</tr>
-											<tr>
-												<td class="label"><label for="">Requested Completion Date:</label></td>
-												<td>
-													<input id="DueDate" name="DueDate" disabled >
-												</td>
+    <tr style="display: ">
+    <td class="label"><label for="">Importance:</label></td>
+    <td>
+    <select id="Priority" name="Priority" disabled>
+    <option value="6">6. when time is available</option>
+    <option value="5" selected>5. regular ticket</option>
+    <option value="4">4. client-visible issues</option>
+    <option value="3">3. client-visible MAJOR issues</option>
+    </select>
+    </td>
+    <td></td>
+    </tr>
+    <tr>
+    <td class="label"><label for="">Requested Completion Date:</label></td>
+    <td>
+    <input id="DueDate" name="DueDate" disabled >
+    </td>
 
-											</tr>
-											<tr>
-												<td class="label"><label for="Reason">Reason Due:</label></td>
-												<td>
-														<input id="Reason" name="Reason" disabled maxlength="200"  >
-												</td>
-												<td></td>
-											</tr>
-											<tr style="display: ">
-												<td class="label"><label for="Estimate_hours">Time Remaining (in&nbsp;hours):</label></td>
-												<td>
-													<input id="Estimate_hours" name="Estimate_hours" disabled  type="text">
-												</td>
-												<td></td>
-											</tr>
-											<tr style="display: ">
-												<td class="label"><label for="TicketSeverity">Severity:</label></td>
-												<td>
-													<input id="TicketSeverity" name="TicketSeverity"  disabled autocomplete="off" value="Task"  class="autocompleteinput1">
-												</td>
+</tr>
+    <tr>
+    <td class="label"><label for="Reason">Reason Due:</label></td>
+    <td>
+    <input id="Reason" name="Reason" disabled maxlength="200"  >
+    </td>
+    <td></td>
+    </tr>
+    <tr style="display: ">
+    <td class="label"><label for="Estimate_hours">Time Remaining (in&nbsp;hours):</label></td>
+    <td>
+    <input id="Estimate_hours" name="Estimate_hours" disabled  type="text">
+    </td>
+    <td></td>
+    </tr>
+    <tr style="display: ">
+    <td class="label"><label for="TicketSeverity">Severity:</label></td>
+    <td>
+    <input id="TicketSeverity" name="TicketSeverity"  disabled autocomplete="off" value="Task"  class="autocompleteinput1">
+    </td>
 
-											</tr>
-											<tr style="display:none" name="projectTicketTabTr" id="projectTicketTabTr">
-												<td class="label"><label for="">Ticket Tab:</label></td>
-												<td>
-													<select id="projectTicketTab" name="projectTicketTab">						
-													</select>
-												</td>
-												<td></td>
-											</tr>			
+</tr>
+    <tr style="display:none" name="projectTicketTabTr" id="projectTicketTabTr">
+    <td class="label"><label for="">Ticket Tab:</label></td>
+    <td>
+    <select id="projectTicketTab" name="projectTicketTab">						
+    </select>
+    </td>
+    <td></td>
+    </tr>			
 
-										</tbody>
-									</table>
-								</div>
-								<br>
-								<br>
-                                                 <INPUT type="submit" value="Create" class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"/> 
-								<br>
-							</form>
-						</span>
-					</div>
-         <script>
-          var url = window.location.href;
-          var ticketurl = "http://genome.klick.com/tasks/ticket/create"
-          if (url.indexOf("?") !== -1 ) {
-            querystring = url.substring(url.indexOf("?"), url.length);
-            prefilledTicket = ticketurl + querystring;
-            document.write("<h1><a href=\""+prefilledTicket+"\">"+prefilledTicket+"</a></h1>");
-          }
-         </script>
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
+</tbody>
+    </table>
+    </div>
+    <br>
+    <br>
+    <INPUT type="submit" value="Create" class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"/> 
+    <br>
+    <br/><br/><br/>
+    <div id="passiveAgressive" style="background: -moz-linear-gradient(center top , #e67e22 0%, #d35400 100%) repeat scroll 0% 0% transparent; padding:10px; width: 50%;margin-left: 150px; margin-right: auto;  display: none;"> <p style="color: #fff; font-weight: 700; font-size: 24px; text-align: center">Was that so hard?</p></div> 
+    </div>
+    
+</form>
+    </span>
+    </div>
+    <script>
+          
+
+$(function(){
+
+    function typeOut(target, string, cb, attr){
+        console.log(cb);
+        $(target).typed({
+            strings: [string],
+            showCursor: false,
+            attr: attr,
+            callback: (typeof cb == "undefined" ? function(){} : cb),
+            typeSpeed: 0
+        });
+    }
+
+    function typeTitle(cb) {
+        typeOut("#Title", "TTitleTitleitle", cb, "value");
+    }
+
+    function typeDescription(cb){
+        typeOut("#Description", "This is my content!!!", cb);
+    }
+
+    function showPassiveAgressiveDiv(cb) {
+        $("#passiveAgressive").fadeIn("slow");
+        cb();
+    }
+
+    function clickOnButton(cb) {
+        button=$(".button");
+        $("#fakeMouse").animate({
+            top:  (button.position().top  + 15),
+            left: (button.position().left + 10)
+        }, 1500, 'swing', function() {
+            //button.click();
+            $(".button").css("background-color","#3498DB");
+            cb();
+        });
+    };
+    
+    function goToTicketPage(cb) {
+        var url = window.location.href;
+        var ticketurl = "http://genome.klick.com/tasks/ticket/create"
+        querystring = url.substring(url.indexOf("?"), url.length);
+        prefilledTicket = ticketurl + querystring;
+        
+        console.log(prefilledTicket);
+        cb();
+
+        //setTimeout(function(){window.location.href = prefilledTicket},2000);
+    }
+
+    function simpleChain(chain){
+        if(chain.length == 1){return chain[0]};
+        var fn = chain.shift();
+        var sc = simpleChain(chain);
+        return function(){fn(sc)};
+    } 
+
+    simpleChain([typeTitle, 
+                 typeDescription,
+                 clickOnButton,
+                 showPassiveAgressiveDiv,
+                 goToTicketPage
+                ])();
+
+});
+
+</script>
+    </div>
+    </div>
+    </div>
+    </body>
+    </html>
