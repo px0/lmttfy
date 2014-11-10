@@ -1,0 +1,260 @@
+/*!
+ * ASP.NET SignalR JavaScript Library v1.1.3
+ * http://signalr.net/
+ *
+ * Copyright Microsoft Open Technologies, Inc. All rights reserved.
+ * Licensed under the Apache 2.0
+ * https://github.com/SignalR/SignalR/blob/master/LICENSE.md
+ *
+ */
+
+/// <reference path="..\..\SignalR.Client.JS\Scripts\jquery-1.6.4.js" />
+/// <reference path="jquery.signalR.js" />
+(function ($, window) {
+    /// <param name="$" type="jQuery" />
+    "use strict";
+
+    if (typeof ($.signalR) !== "function") {
+        throw new Error("SignalR: SignalR is not loaded. Please ensure jquery.signalR-x.js is referenced before ~/signalr/hubs.");
+    }
+
+    var signalR = $.signalR;
+
+    function makeProxyCallback(hub, callback) {
+        return function () {
+            // Call the client hub method
+            callback.apply(hub, $.makeArray(arguments));
+        };
+    }
+
+    function registerHubProxies(instance, shouldSubscribe) {
+        var key, hub, memberKey, memberValue, subscriptionMethod;
+
+        for (key in instance) {
+            if (instance.hasOwnProperty(key)) {
+                hub = instance[key];
+
+                if (!(hub.hubName)) {
+                    // Not a client hub
+                    continue;
+                }
+
+                if (shouldSubscribe) {
+                    // We want to subscribe to the hub events
+                    subscriptionMethod = hub.on;
+                }
+                else {
+                    // We want to unsubscribe from the hub events
+                    subscriptionMethod = hub.off;
+                }
+
+                // Loop through all members on the hub and find client hub functions to subscribe/unsubscribe
+                for (memberKey in hub.client) {
+                    if (hub.client.hasOwnProperty(memberKey)) {
+                        memberValue = hub.client[memberKey];
+
+                        if (!$.isFunction(memberValue)) {
+                            // Not a client hub function
+                            continue;
+                        }
+
+                        subscriptionMethod.call(hub, memberKey, makeProxyCallback(hub, memberValue));
+                    }
+                }
+            }
+        }
+    }
+
+    $.hubConnection.prototype.createHubProxies = function () {
+        var proxies = {};
+        this.starting(function () {
+            // Register the hub proxies as subscribed
+            // (instance, shouldSubscribe)
+            registerHubProxies(proxies, true);
+
+            this._registerSubscribedHubs();
+        }).disconnected(function () {
+            // Unsubscribe all hub proxies when we "disconnect".  This is to ensure that we do not re-add functional call backs.
+            // (instance, shouldSubscribe)
+            registerHubProxies(proxies, false);
+        });
+
+        proxies.TicketChatHub = this.createHubProxy('TicketChatHub'); 
+        proxies.TicketChatHub.client = { };
+        proxies.TicketChatHub.server = {
+            getConnections: function () {
+                return proxies.TicketChatHub.invoke.apply(proxies.TicketChatHub, $.merge(["GetConnections"], $.makeArray(arguments)));
+             },
+
+            getPresence: function (UserID, TicketID) {
+                return proxies.TicketChatHub.invoke.apply(proxies.TicketChatHub, $.merge(["GetPresence"], $.makeArray(arguments)));
+             },
+
+            getUserIDsInGroup: function (GroupID) {
+                return proxies.TicketChatHub.invoke.apply(proxies.TicketChatHub, $.merge(["GetUserIDsInGroup"], $.makeArray(arguments)));
+             },
+
+            joinGroup: function (GroupID) {
+                return proxies.TicketChatHub.invoke.apply(proxies.TicketChatHub, $.merge(["JoinGroup"], $.makeArray(arguments)));
+             },
+
+            leaveGroup: function (groupID) {
+                return proxies.TicketChatHub.invoke.apply(proxies.TicketChatHub, $.merge(["LeaveGroup"], $.makeArray(arguments)));
+             },
+
+            sendEvent: function (ticketID, jsonData) {
+                return proxies.TicketChatHub.invoke.apply(proxies.TicketChatHub, $.merge(["SendEvent"], $.makeArray(arguments)));
+             },
+
+            sendLoadTest: function (ticketID, numMsgs, delayInMs) {
+                return proxies.TicketChatHub.invoke.apply(proxies.TicketChatHub, $.merge(["SendLoadTest"], $.makeArray(arguments)));
+             },
+
+            sendToGroup: function (GroupID, data) {
+                return proxies.TicketChatHub.invoke.apply(proxies.TicketChatHub, $.merge(["SendToGroup"], $.makeArray(arguments)));
+             },
+
+            setConnectionActiveStatus: function (isActive) {
+                return proxies.TicketChatHub.invoke.apply(proxies.TicketChatHub, $.merge(["SetConnectionActiveStatus"], $.makeArray(arguments)));
+             }
+        };
+
+        proxies.TicketHub = this.createHubProxy('TicketHub'); 
+        proxies.TicketHub.client = { };
+        proxies.TicketHub.server = {
+            approveTimeOverEstimate: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["ApproveTimeOverEstimate"], $.makeArray(arguments)));
+             },
+
+            approveWhatProject: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["ApproveWhatProject"], $.makeArray(arguments)));
+             },
+
+            clearCreationRowLock: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["ClearCreationRowLock"], $.makeArray(arguments)));
+             },
+
+            clearEditingLock: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["ClearEditingLock"], $.makeArray(arguments)));
+             },
+
+            convertChecklistItemToTicket: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["ConvertChecklistItemToTicket"], $.makeArray(arguments)));
+             },
+
+            deleteViews: function (ticketID, userID) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["DeleteViews"], $.makeArray(arguments)));
+             },
+
+            getSubscriptionStatus: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["GetSubscriptionStatus"], $.makeArray(arguments)));
+             },
+
+            joinGroup: function (groupID) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["JoinGroup"], $.makeArray(arguments)));
+             },
+
+            leaveGroup: function (groupID) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["LeaveGroup"], $.makeArray(arguments)));
+             },
+
+            projectInviteAction: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["ProjectInviteAction"], $.makeArray(arguments)));
+             },
+
+            rejectTimeOverEstimate: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["RejectTimeOverEstimate"], $.makeArray(arguments)));
+             },
+
+            rejectWhatProject: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["RejectWhatProject"], $.makeArray(arguments)));
+             },
+
+            setCellEditingLock: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["SetCellEditingLock"], $.makeArray(arguments)));
+             },
+
+            setCreationRowLock: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["SetCreationRowLock"], $.makeArray(arguments)));
+             },
+
+            subscribe: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["Subscribe"], $.makeArray(arguments)));
+             },
+
+            unsubscribe: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["Unsubscribe"], $.makeArray(arguments)));
+             },
+
+            updateAttachmentList: function (groupID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["UpdateAttachmentList"], $.makeArray(arguments)));
+             },
+
+            updateChildTicketFieldData: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["UpdateChildTicketFieldData"], $.makeArray(arguments)));
+             },
+
+            updateHistory: function (TicketID) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["UpdateHistory"], $.makeArray(arguments)));
+             },
+
+            updateTimeRemaining: function (ticketID, data) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["UpdateTimeRemaining"], $.makeArray(arguments)));
+             },
+
+            viewedTicket: function (ticketID, userID) {
+                return proxies.TicketHub.invoke.apply(proxies.TicketHub, $.merge(["ViewedTicket"], $.makeArray(arguments)));
+             }
+        };
+
+        proxies.UserHub = this.createHubProxy('UserHub'); 
+        proxies.UserHub.client = { };
+        proxies.UserHub.server = {
+            broadcastStatusUpdate: function () {
+                return proxies.UserHub.invoke.apply(proxies.UserHub, $.merge(["BroadcastStatusUpdate"], $.makeArray(arguments)));
+             },
+
+            bump: function (targetUserID, data) {
+                return proxies.UserHub.invoke.apply(proxies.UserHub, $.merge(["Bump"], $.makeArray(arguments)));
+             },
+
+            dial: function (phone) {
+                return proxies.UserHub.invoke.apply(proxies.UserHub, $.merge(["Dial"], $.makeArray(arguments)));
+             },
+
+            dismissBump: function (data) {
+                return proxies.UserHub.invoke.apply(proxies.UserHub, $.merge(["DismissBump"], $.makeArray(arguments)));
+             },
+
+            getConnections: function () {
+                return proxies.UserHub.invoke.apply(proxies.UserHub, $.merge(["GetConnections"], $.makeArray(arguments)));
+             },
+
+            getGTalkStatuses: function () {
+                return proxies.UserHub.invoke.apply(proxies.UserHub, $.merge(["GetGTalkStatuses"], $.makeArray(arguments)));
+             },
+
+            getHubConnections: function () {
+                return proxies.UserHub.invoke.apply(proxies.UserHub, $.merge(["GetHubConnections"], $.makeArray(arguments)));
+             },
+
+            joinGroup: function () {
+                return proxies.UserHub.invoke.apply(proxies.UserHub, $.merge(["JoinGroup"], $.makeArray(arguments)));
+             },
+
+            leaveGroup: function () {
+                return proxies.UserHub.invoke.apply(proxies.UserHub, $.merge(["LeaveGroup"], $.makeArray(arguments)));
+             },
+
+            userStatuses: function (UserIDs) {
+                return proxies.UserHub.invoke.apply(proxies.UserHub, $.merge(["UserStatuses"], $.makeArray(arguments)));
+             }
+        };
+
+        return proxies;
+    };
+
+    signalR.hub = $.hubConnection("/signalr", { useDefaultPath: false });
+    $.extend(signalR, signalR.hub.createHubProxies());
+
+}(window.jQuery, window));
