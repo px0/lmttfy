@@ -291,15 +291,12 @@ $(function()
 
 	  function goToTicketPage(cb)
 	  {
-		  var url = window.location.href;
-		  var ticketurl = "http://genome.klick.com/tasks/ticket/create"
-		  querystring = url.substring(url.indexOf("?"), url.length);
-		  prefilledTicket = ticketurl + querystring;
 
-		  console.log(prefilledTicket);
+
+		  console.log("{{genomelink|safe}}");
 		  cb();
 
-		  //setTimeout(function(){window.location.href = prefilledTicket},2000);
+		  //setTimeout(function(){window.location.href = "{{genomelink|safe}}"},1500);
 	  }
 
 	  function simpleChain(chain)

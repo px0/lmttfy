@@ -6,15 +6,12 @@
             [lmttfy.util :as util]))
 
 (def baseurl "http://lmttfy.klick.com/")
-
+(def genomeurl "http://genome.klick.com/tasks/ticket/create")
 (defn home-page []
   (println "home-page")
   (layout/render "index.html" {}))
 
 (defn post-ticket [Title Description AssignedToUserID]
-  (println "post-ticket")
-  (println "Dsc:" )
-  (>pprint Description)
   (let [id (shortener/create-ticket Title Description AssignedToUserID)]
     (println "successfully created ticket with hash" id)
     (layout/render "index.html" {:created true
@@ -24,15 +21,29 @@
                                  :AssignedToUserID AssignedToUserID
                                  })))
 
+(defn remove-nil [m]
+  (into {} (remove #(nil? (val %)) m)))
+
+
+(defn map->querystring [m]
+  (str \?
+       (ring.util.codec/form-encode m)))
+
+(defn genome-query-link [m]
+  (str genomeurl (map->querystring (remove-nil {:Title (m :title)
+                                                :Description (if (nil? (m :description))
+                                                               ""
+                                                               (clojure.string/replace (m :description) #"\r?\n" "<br/>")) 
+                                                :AssignedToUserID (m :assignedtouserid)}))))
+
 (defn render-short-url [hash]
   (let [[ticket] (db/get-ticket hash)]
-    (if-let [{:keys [summary description assignedtouserid]} ticket]
+    (if-let [{:keys [title description assignedtouserid]} ticket]
       (do
-        (>pprint ticket)
         (layout/render "index.html" {:show true
-                                     :link "http://lmttfy.klick.com/12345678"
-                                     :Title summary
-                                     :Description description
+                                     :genomelink (genome-query-link ticket)
+                                     :Title title
+                                     :Description (clojure.string/replace description #"\r?\n" "\\\\n")
                                      :AssignedToUserID assignedtouserid
                                      }))
       "Not found")))

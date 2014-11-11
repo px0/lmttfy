@@ -13,9 +13,9 @@
 (defn has-key? [id]
   (not (empty? (get-ticket id))))
 
-(defn insert-ticket [id Summary Description AssignedToUserID]
+(defn insert-ticket [id Title Description AssignedToUserID]
   (insert ticket (values {:id id
-                          :Summary Summary
+                          :Title Title
                           :Description Description
                           :AssignedToUserID AssignedToUserID})))
 

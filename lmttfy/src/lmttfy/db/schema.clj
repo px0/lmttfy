@@ -25,7 +25,7 @@
    (sql/create-table-ddl
     :ticket
     [:id "varchar(20) PRIMARY KEY"]
-    [:Summary "varchar(100)"]
+    [:Title "varchar(100)"]
     [:Description "varchar(255)"]
     [:AssignedToUserID "varchar(100)"])))
 
