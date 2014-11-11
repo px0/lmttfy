@@ -3,6 +3,7 @@
             [lmttfy.layout :as layout]
             [lmttfy.shortener :as shortener]
             [lmttfy.db.core :as db]
+            [ring.util.codec :refer [form-encode]]
             [lmttfy.util :as util]))
 
 (def baseurl "http://lmttfy.klick.com/")
@@ -27,7 +28,7 @@
 
 (defn map->querystring [m]
   (str \?
-       (ring.util.codec/form-encode m)))
+       (form-encode m)))
 
 (defn genome-query-link [m]
   (str genomeurl (map->querystring (remove-nil {:Title (m :title)
