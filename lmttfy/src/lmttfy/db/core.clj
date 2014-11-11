@@ -7,17 +7,17 @@
 
 (defentity ticket)
 
+(defn get-ticket [id]
+  (select ticket (where {:id id})))
+
 (defn has-key? [id]
   (not (empty? (get-ticket id))))
 
-(defn insert-ticket [{:keys [id Summary Description AssignedToUserID] :as tkt} ]
+(defn insert-ticket [id Summary Description AssignedToUserID]
   (insert ticket (values {:id id
                           :Summary Summary
                           :Description Description
                           :AssignedToUserID AssignedToUserID})))
-
-(defn get-ticket [id]
-  (select ticket (where {:id id})))
 
 (comment
   (insert-ticket {:id "m" :Summary "Title" :Description "this is my text" :AssignedToUserID "Max"})

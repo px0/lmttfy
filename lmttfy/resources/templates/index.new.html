@@ -1,0 +1,362 @@
+<html class="csstransforms no-csstransforms3d csstransitions" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <style type="text/css">
+        @charset "UTF-8";
+        {
+            display: none !important;
+        }
+		.label {font-size: 12px;}
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="smartsite_root" id="smartsite_root" value="/" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta name="viewport" content="width=1024" />
+    <link rel="shortcut icon" href="#" />
+    <title>Let me ticket that for you</title>
+    <link href="addTicket_files/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="addTicket_files/styles.css" />
+    <link rel="stylesheet" href="addTicket_files/stylesheet.css" />
+    <link rel="stylesheet" href="addTicket_files/font-awesome.css" />
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/typed.js/js/typed.js"></script>
+
+</head>
+
+<body class="singlelevel">
+    <img class="decoded" src="img/fakemouse.png" id="fakeMouse" style="position: fixed; z-index:9999" />
+
+    <div class="wrapper">
+        <div class="layout">
+
+            <div class="layout-top">
+                <a href="#" class="homelink">
+                    <img src="addTicket_files/genome.png" title="Genome" />
+                </a>
+
+                <div id="TopMenu">
+                    <ul id="megamenu">
+                        <li class="menu">
+                            <div class="menu-title">
+                                <span class="ELEMENT-elements-navigation-top_menu-index smartsite-element smartsite-element-editmode-both">
+                <a href="#" page=
+                "/tools/academy/">Academy</a></span>
+                            </div>
+                        </li>
+
+                        <li class="menu selected">
+                            <div class="menu-title">
+                                <span class="ELEMENT-elements-navigation-top_menu-index smartsite-element smartsite-element-editmode-both">
+                <span page="/general/">Klick 101</span></span>
+                            </div>
+                        </li>
+
+                        <li class="menu">
+                            <div class="menu-title">
+                                <a href="#" page="/sales/user/">Clients</a>
+                            </div>
+                        </li>
+
+                        <li class="menu">
+                            <div class="menu-title">
+                                <span page="/tasks/">Production</span>
+                            </div>
+                        </li>
+
+                        <li class="menu">
+                            <div class="menu-title">
+                                <span page="/tools/">Tools</span>
+                            </div>
+                        </li>
+
+                        <li class="menu">
+                            <div class="menu-title">
+                                <a href="#" page="/scheduler/href=">Scheduler</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="topwrapper"></div>
+
+
+            <div class="content" id="InternalContent" style="">
+                <div class="box" id="BoxOrNoBox">
+                    <div class="local_menu one"></div>
+
+                    <form id="viewform" action="" method="get">
+                        <div class="tickets box">
+                            <table class="tickettable">
+                                <colgroup>
+                                    <col style="width:150px;" />
+                                    <col />
+                                    <col style="width:20px;" />
+                                </colgroup>
+
+                                <tbody>
+                                    <tr>
+                                        <td class="label">
+                                            <label for="Title">Summary:</label>
+                                        </td>
+
+                                        <td>
+                                            <input autocomplete="off" id="Title" maxlength="255" name="Title" value="" />
+                                        </td>
+
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="label" style="vertical-align:top">
+                                            <label for="">Details:</label>
+                                        </td>
+
+                                        <td>
+											<textarea name="Description" id="Description" cols="40" rows="5"></textarea>
+                                        </td>
+
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td></td>
+
+                                        <td>
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td valign="middle">
+                                                            <input name="convertParagraphs" disabled="disabled" style="width:19px;" type="checkbox" />
+                                                        </td>
+
+                                                        <td valign="middle">&nbsp;<i>Convert
+                            paragraphs to separate tickets</i>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="label">
+                                            <label for="ProjectID">Project:</label>
+                                        </td>
+
+                                        <td>
+                                            <input id="ProjectID" name="ProjectID" autocomplete="off" width="100%" />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="label">
+                                            <label for="AssignedToUserID">Assigned (optional):
+                                            </label>
+                                        </td>
+
+                                        <td>
+                                            <input id="AssignedToUserID" name="AssignedToUserID" autocomplete="off" />
+                                        </td>
+                                    </tr>
+
+                                    <tr style="display:">
+                                        <td class="label">
+                                            <label for="">Importance:</label>
+                                        </td>
+
+                                        <td>
+                                            <select id="Priority" name="Priority" disabled="disabled">
+                                                <option value="6">
+                                                    6. when time is available
+                                                </option>
+
+                                                <option value="5" selected="selected">
+                                                    5. regular ticket
+                                                </option>
+
+                                                <option value="4">
+                                                    4. client-visible issues
+                                                </option>
+
+                                                <option value="3">
+                                                    3. client-visible MAJOR issues
+                                                </option>
+                                            </select>
+                                        </td>
+
+                                        <td></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="label">
+                                            <label for="">Requested Completion Date:</label>
+                                        </td>
+
+                                        <td>
+                                            <input id="DueDate" name="DueDate" disabled="disabled" />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="label">
+                                            <label for="Reason">Reason Due:
+                                            </label>
+                                        </td>
+
+                                        <td>
+                                            <input id="Reason" name="Reason" disabled="disabled" maxlength="200" />
+                                        </td>
+
+                                        <td></td>
+                                    </tr>
+
+                                    <tr style="display:">
+                                        <td class="label">
+                                            <label for="Estimate_hours">Time Remaining (in&nbsp;hours):
+                                            </label>
+                                        </td>
+
+                                        <td>
+                                            <input id="Estimate_hours" name="Estimate_hours" disabled="disabled" type="text" />
+                                        </td>
+
+                                        <td></td>
+                                    </tr>
+
+                                    <tr style="display:">
+                                        <td class="label">
+                                            <label for="TicketSeverity">Severity:</label>
+                                        </td>
+
+                                        <td>
+                                            <input id="TicketSeverity" name="TicketSeverity" disabled="disabled" autocomplete="off" value="Task" class="autocompleteinput1" />
+                                        </td>
+                                    </tr>
+
+                                    <tr style="display:none" name="projectTicketTabTr" id="projectTicketTabTr">
+                                        <td class="label">
+                                            <label for="">Ticket Tab:
+                                            </label>
+                                        </td>
+
+                                        <td>
+                                            <select id="projectTicketTab" name="projectTicketTab">
+                                            </select>
+                                        </td>
+
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div><span class="ELEMENT-tasks-ticket-create smartsite-element smartsite-element-editmode-both"><br />
+
+            <br />
+            <input type="submit" value="Create" class=
+            "button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" />
+            <br />
+            <br />
+            <br />
+            <br /></span>
+
+                        <div id="passiveAgressive" style="background: -moz-linear-gradient(center top , #e67e22 0%, #d35400 100%) repeat scroll 0% 0% transparent; padding:10px; width: 50%;margin-left: 150px; margin-right: auto; display: none;">
+                            <p style="color: #fff; font-weight: 700; font-size: 24px; text-align: center">
+                                <span class="ELEMENT-tasks-ticket-create smartsite-element smartsite-element-editmode-both">
+              Was that so hard?</span>
+                            </p>
+                        </div>
+                    </form>
+                </div><script>
+                $(function()
+                {
+
+                    function typeOut(target, string, cb, attr)
+                    {
+                        console.log(cb);
+                        $(target).typed(
+                        {
+                            strings: [string],
+                            showCursor: false,
+                            attr: attr,
+                            callback: (typeof cb == "undefined" ? function() {} : cb),
+                            typeSpeed: 0
+                        });
+                    }
+
+                    function typeTitle(cb)
+                    {
+                        typeOut("#Title", "TTitleTitleitle", cb, "value");
+                    }
+
+                    function typeDescription(cb)
+                    {
+                        typeOut("#Description", "This is my content!!!", cb);
+                    }
+
+                    function showPassiveAgressiveDiv(cb)
+                    {
+                        $("#passiveAgressive").fadeIn("slow");
+                        cb();
+                    }
+
+                    function clickOnButton(cb)
+                    {
+                        button = $(".button");
+                        $("#fakeMouse").animate(
+                        {
+                            top: (button.position().top + 15),
+                            left: (button.position().left + 10)
+                        }, 1500, 'swing', function()
+                        {
+                            //button.click();
+                            $(".button").css("background-color", "#3498DB");
+                            cb();
+                        });
+                    };
+
+                    function goToTicketPage(cb)
+                    {
+                        var url = window.location.href;
+                        var ticketurl = "http://genome.klick.com/tasks/ticket/create"
+                        querystring = url.substring(url.indexOf("?"), url.length);
+                        prefilledTicket = ticketurl + querystring;
+
+                        console.log(prefilledTicket);
+                        cb();
+
+                        //setTimeout(function(){window.location.href = prefilledTicket},2000);
+                    }
+
+                    function simpleChain(chain)
+                    {
+                        if (chain.length == 1)
+                        {
+                            return chain[0]
+                        };
+                        var fn = chain.shift();
+                        var sc = simpleChain(chain);
+                        return function()
+                        {
+                            fn(sc)
+                        };
+                    }
+
+                    simpleChain([typeTitle,
+                        typeDescription,
+                        clickOnButton,
+                        showPassiveAgressiveDiv,
+                        goToTicketPage
+                    ])();
+
+                });
+        </script>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

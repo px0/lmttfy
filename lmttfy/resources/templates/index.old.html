@@ -26,9 +26,7 @@
 </head>
 
 <body class="singlelevel   ">
-	{% if show %}
     <img class="decoded" src="img/fakemouse.png" id="fakeMouse" style="position: fixed; z-index:9999">
-	{% endif %}
     <div class="wrapper">
         <div class="layout">
             <img src="addTicket_files/loading-creambg.gif" class="loading" style="display:none" id="loadingicon" height="32" width="32">
@@ -92,7 +90,7 @@
     </span>
                 </div>
                 <span class="ELEMENT-tasks-ticket-create smartsite-element smartsite-element-editmode-both">
-    <form id="viewform" action="" method="post" >
+    <form id="viewform" action="" method="get" >
     <div class="tickets box">
 
     <table class="tickettable">
@@ -105,13 +103,13 @@
     <tbody>
     <tr>
     <td class="label"><label for="Title">Summary:</label></td>
-	<td><input autocomplete="off" id="Title" maxlength="255" name="Title" /></td>
+    <td><input autocomplete="off" id="Title" maxlength="255" name="Title" value=""/></td>
     <td></td>
     </tr>
     <tr>
     <td class="label" style="vertical-align:top"><label for="">Details:</label></td>
     <td>
-		<textarea name="Description" id="Description" cols="40" rows="5"  ... ></textarea>
+    <textarea name="Description" id="Description" cols="40" rows="5" ... ></textarea>
     </td>
     <td></td>
     </tr>
@@ -135,14 +133,14 @@
     <tr>
     <td class="label"><label for="ProjectID">Project:</label></td>
     <td>
-    <input id="ProjectID" name="ProjectID" disabled width="100%"/>
+    <input id="ProjectID" name="ProjectID" autocomplete="off"   width="100%"/>
     </td>
 
 </tr>
     <tr>
     <td class="label"><label for="AssignedToUserID">Assigned (optional):</label></td>
     <td>
-		<input id="AssignedToUserID" name="AssignedToUserID" autocomplete="off"/>
+    <input id="AssignedToUserID" name="AssignedToUserID" autocomplete="off" />
     </td>
 
 </tr>
@@ -201,136 +199,96 @@
     </div>
     <br/>
     <br/>
-	<INPUT type="submit" value="Create" {% if show %} disabled {% endif %} id="submitbutton" class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"/> 
-	<br/>
-	<br/><br/><br/>
+    <INPUT type="submit" value="Create" class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"/> 
+    <br/>
+    <br/><br/><br/>
+    <div id="passiveAgressive" style="background: -moz-linear-gradient(center top , #e67e22 0%, #d35400 100%) repeat scroll 0% 0% transparent; padding:10px; width: 50%;margin-left: 150px; margin-right: auto;  display: none;"> <p style="color: #fff; font-weight: 700; font-size: 24px; text-align: center">Was that so hard?</p></div> 
+    </div>
+    
+            <script>
+                $(function()
+                {
 
-	<div id="passiveAgressive" style="background: -moz-linear-gradient(center top , #e67e22 0%, #d35400 100%) repeat scroll 0% 0% transparent; padding:10px; width: 50%;margin-left: 150px; margin-right: auto; color: #fff; font-weight: 700; display: none"> 
+                    function typeOut(target, string, cb, attr)
+                    {
+                        console.log(cb);
+                        $(target).typed(
+                        {
+                            strings: [string],
+                            showCursor: false,
+                            attr: attr,
+                            callback: (typeof cb == "undefined" ? function() {} : cb),
+                            typeSpeed: 0
+                        });
+                    }
 
-		{% if created %}
-		<p>
-			Share this link: &nbsp;<br/>
-		</p>
-		<p>
-			<input id="passiveAgressiveLink" type="text" value="{{link}}" style="width: 70%"/><br/>
-		</p>
-		<p>
-			<INPUT value="Preview" type="button" onclick="openLink()" class="button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"/> 
-		</p>
+                    function typeTitle(cb)
+                    {
+                        typeOut("#Title", "TTitleTitleitle", cb, "value");
+                    }
 
-		<script> 
-			$(function() {
-				$("#Title").val("{{Title}}");
-				$("#Description").val("{{Description}}");
-				$("#AssignedToUserID").val("{{AssignedToUserID}}");
-				$("#submitbutton").hide();
-				$("#passiveAgressive").fadeIn();
-			});
+                    function typeDescription(cb)
+                    {
+                        typeOut("#Description", "This is my content!!!", cb);
+                    }
 
-			function openLink(){
-				console.log("{{link}}")	;
-			}
-		</script>
+                    function showPassiveAgressiveDiv(cb)
+                    {
+                        $("#passiveAgressive").fadeIn("slow");
+                        cb();
+                    }
 
-		{% endif %}
+                    function clickOnButton(cb)
+                    {
+                        button = $(".button");
+                        $("#fakeMouse").animate(
+                        {
+                            top: (button.position().top + 15),
+                            left: (button.position().left + 10)
+                        }, 1500, 'swing', function()
+                        {
+                            //button.click();
+                            $(".button").css("background-color", "#3498DB");
+                            cb();
+                        });
+                    };
 
-		{% if show %}
-		<p style="font-weight: 700; font-size: 24px; text-align: center">Was that so hard?</p></div> 
-	<script>
-$(function()
-  {
+                    function goToTicketPage(cb)
+                    {
+                        var url = window.location.href;
+                        var ticketurl = "http://genome.klick.com/tasks/ticket/create"
+                        querystring = url.substring(url.indexOf("?"), url.length);
+                        prefilledTicket = ticketurl + querystring;
 
-	  function typeOut(target, string, cb, attr)
-	  {
-		  console.log(cb);
-		  $(target).typed(
-			  {
-			  strings: [string],
-			  showCursor: false,
-			  attr: attr,
-			  callback: (typeof cb == "undefined" ? function() {} : cb),
-			  typeSpeed: 0
-		  });
-	  }
+                        console.log(prefilledTicket);
+                        cb();
 
-	  function typeTitle(cb)
-	  {
-		  typeOut("#Title", "{{Title}}", cb, "value");
-	  }
+                        //setTimeout(function(){window.location.href = prefilledTicket},2000);
+                    }
 
-	  function typeDescription(cb)
-	  {
-		  typeOut("#Description", "{{Description}}", cb);
-	  }
+                    function simpleChain(chain)
+                    {
+                        if (chain.length == 1)
+                        {
+                            return chain[0]
+                        };
+                        var fn = chain.shift();
+                        var sc = simpleChain(chain);
+                        return function()
+                        {
+                            fn(sc)
+                        };
+                    }
 
-	  function typeAssignee(cb)
-	  {
-		  typeOut("#AssignedToUserID", "{{AssignedToUserID}}", cb);
-	  }
+                    simpleChain([typeTitle,
+                        typeDescription,
+                        clickOnButton,
+                        showPassiveAgressiveDiv,
+                        goToTicketPage
+                    ])();
 
-	  function showPassiveAgressiveDiv(cb)
-	  {
-		  $("#passiveAgressive").fadeIn("slow");
-		  cb();
-	  }
-
-	  function clickOnButton(cb)
-	  {
-		  button = $(".button");
-		  $("#fakeMouse").animate(
-			  {
-			  top: (button.position().top + 15),
-			  left: (button.position().left + 10)
-		  }, 1500, 'swing', function()
-		  {
-			  //button.click();
-			  $(".button").css("background-color", "#3498DB");
-			  cb();
-		  });
-	  };
-
-	  function goToTicketPage(cb)
-	  {
-		  var url = window.location.href;
-		  var ticketurl = "http://genome.klick.com/tasks/ticket/create"
-		  querystring = url.substring(url.indexOf("?"), url.length);
-		  prefilledTicket = ticketurl + querystring;
-
-		  console.log(prefilledTicket);
-		  cb();
-
-		  //setTimeout(function(){window.location.href = prefilledTicket},2000);
-	  }
-
-	  function simpleChain(chain)
-	  {
-		  if (chain.length == 1)
-			  {
-				  return chain[0]
-			  };
-			  var fn = chain.shift();
-			  var sc = simpleChain(chain);
-			  return function()
-			  {
-				  fn(sc)
-			  };
-	  }
-
-	  simpleChain([typeTitle,
-				  typeDescription,
-				  typeAssignee,
-				  clickOnButton,
-				  showPassiveAgressiveDiv,
-				  goToTicketPage
-	  ])();
-
-  });
-
-		
-	</script>
-	    {% endif %}
-</div>
-
+                });
+            </script>
 
 </body>
 

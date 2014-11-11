@@ -1,4 +1,4 @@
-(ns lmttfy.handler
+(ns lmttfy.shortener
   (:require [lmttfy.db.core :as db]))
 
 (defn random-string [length]
@@ -12,3 +12,8 @@
     (if-not (db/has-key? hash)
       hash
       (find-unique-string))))
+
+(defn create-ticket [Title Description AssignedToUserID]
+  (let [id (find-unique-string)]
+    (db/insert-ticket id Title Description AssignedToUserID)
+    id))
